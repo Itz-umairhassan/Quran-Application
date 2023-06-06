@@ -32,7 +32,7 @@ public class DisplaySurah extends AppCompatActivity {
         return surah_translation;
     }
 
-    protected void intentHandler(String[] arr){
+    protected void intentHandler(String[] arr,int position){
         int tempo;
 
         Intent intent=new Intent(DisplaySurah.this,AyatDisplay.class);
@@ -41,6 +41,7 @@ public class DisplaySurah extends AppCompatActivity {
         if(arr.length==2) intent.putExtra("end",Integer.parseInt(arr[1]));
         else intent.putExtra("end",Integer.parseInt(arr[0]));
 
+        intent.putExtra("position",position);
         startActivity(intent);
     }
 
@@ -90,7 +91,7 @@ public class DisplaySurah extends AppCompatActivity {
                             any_thing_wrong=true;
                         }
                         
-                        if(!any_thing_wrong) intentHandler(arr);
+                        if(!any_thing_wrong) intentHandler(arr,idx);
                     }
                 }
 
