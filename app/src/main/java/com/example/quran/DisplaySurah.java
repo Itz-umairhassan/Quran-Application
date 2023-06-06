@@ -22,10 +22,12 @@ public class DisplaySurah extends AppCompatActivity {
     protected String getSurahTransaltion(int idx){
         String surah_translation="";
 
-        int end=tracker.getSurahStart(idx+1)-1;
+        int end;
+        if(idx!=113)end=tracker.getSurahStart(idx+1)-1;
+        else end=idx+5;
 
 
-        for(int i=idx;i<=end;i++ ){
+        for(int i=idx-1;i<end;i++ ){
             surah_translation+=(translations.QuranArabicText[i]);
         }
 
